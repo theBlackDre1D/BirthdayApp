@@ -3,6 +3,7 @@ package com.g3.birthdayapp.screens.userDetail
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.navigation.fragment.navArgs
+import com.g3.base.extensions.onClick
 import com.g3.base.screens.fragment.BaseFragment
 import com.g3.base.screens.fragment.BaseFragmentHandler
 import com.g3.birthdayapp.databinding.UserDetailFragmentBinding
@@ -30,10 +31,14 @@ class UserDetailFragment : BaseFragment<UserDetailFragmentBinding, UserDetailFra
             user.picture?.thumbnail?.let { url ->
                 this.userIV.loadImageFromUrl(url)
             }
+
+            goBackB.onClick {
+                handler.onGoBackClick()
+            }
         }
     }
 }
 
 interface UserDetailFragmentHandler : BaseFragmentHandler {
-
+    fun onGoBackClick()
 }
