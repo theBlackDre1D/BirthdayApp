@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main__navigation"
+    app:startDestination="@id/usersListFragment">
+
+    <fragment
+        android:id="@+id/usersListFragment"
+        android:name="com.g3.birthdayapp.screens.usersList.UsersListFragment"
+        android:label="UsersListFragment"
+        tools:layout="@layout/users_list__fragment">
+        <action
+            android:id="@+id/action_usersList_to_userDetail"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.g3.birthdayapp.screens.userDetail.UserDetailFragment"
+        android:label="MovieDetailFragment"
+        tools:layout="@layout/user_detail__fragment">
+        <argument
+            android:name="user"
+            app:argType="com.g3.birthdayapp.models.User" />
+    </fragment>
+
+</navigation>

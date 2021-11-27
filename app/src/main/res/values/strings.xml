@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BirthdayApp</string>
+
+    <!--  Error  -->
+    <string name="error__users_download">Users download failed. Try again later.</string>
+
+    <!--  Users list  -->
+    <string name="users_list_fragment__header">Birthdays</string>
+
+    <!--  User detail  -->
+    <string name="user_detail_fragment__go_back">Go back</string>
+</resources>
