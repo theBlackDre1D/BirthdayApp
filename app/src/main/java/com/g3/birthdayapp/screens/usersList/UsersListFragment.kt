@@ -24,6 +24,7 @@ class UsersListFragment : BaseFragment<UsersListFragmentBinding, UsersListFragme
         binding.usersRV.adapter = usersAdapter
 
         setupListener()
+        viewModel.getUsers()
     }
 
     private fun setupListener() {

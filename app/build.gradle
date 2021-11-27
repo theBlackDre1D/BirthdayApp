@@ -20,10 +20,10 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField "String", "API_URL", "\"https://randomuser.me/api/\""
+            buildConfigField "String", "API_URL", "\"https://randomuser.me/\""
         }
         release {
-            buildConfigField "String", "API_URL", "\"https://randomuser.me/api/\""
+            buildConfigField "String", "API_URL", "\"https://randomuser.me/\""
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

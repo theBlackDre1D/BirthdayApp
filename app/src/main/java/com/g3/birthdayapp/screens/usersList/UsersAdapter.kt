@@ -3,6 +3,7 @@ package com.g3.birthdayapp.screens.usersList
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import com.g3.base.extensions.onClick
 import com.g3.base.recyclerView.BaseAdapterItem
 import com.g3.base.recyclerView.BaseRecyclerViewAdapter
 import com.g3.base.recyclerView.BaseViewHolder
@@ -21,9 +22,15 @@ class UsersAdapter(
 
     override fun bindAdapterViewHolder(holder: UsersAdapterViewHolder, adapterItem: UsersAdapterItem, position: Int) {
         holder.binding.apply {
-            userIV.loadImageFromUrl(adapterItem.user.picture.thumbnail)
+            adapterItem.user.picture?.thumbnail?.let { url ->
+                userIV.loadImageFromUrl(url)
+            }
             userNameTV.text = "${adapterItem.user.name.first} ${adapterItem.user.name.last}"
             userBirthdateTV.text = adapterItem.user.dob.date
+
+            root.onClick {
+                handler.onUserClick(adapterItem.user)
+            }
         }
     }
 

@@ -5,12 +5,16 @@ import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RoundRectShape
 import android.os.Build
+import android.os.SystemClock
 import android.view.Gravity
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.core.content.ContextCompat
 import com.g3.base.R
+
+
+private const val CLICK_DELAY: Long = 750
 
 fun View.setDefaultShadow() {
     this.setShadow(
@@ -98,4 +102,20 @@ fun View.setShadow(
     )
 
     background = drawable
+}
+
+fun View.onClick(onClick: (View) -> Unit) {
+    this.setOnClickListener(object : View.OnClickListener {
+        private var lastClickTime: Long = 0
+
+        override fun onClick(v: View) {
+            if (SystemClock.elapsedRealtime() - this.lastClickTime < CLICK_DELAY) {
+                return
+            } else {
+                onClick(v)
+            }
+
+            this.lastClickTime = SystemClock.elapsedRealtime()
+        }
+    })
 }

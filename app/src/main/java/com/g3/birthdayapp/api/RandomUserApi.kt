@@ -8,6 +8,6 @@ private const val API_SEED = "chalkboard"
 
 interface RandomUserApi {
 
-    @GET
+    @GET("api")
     suspend fun getRandomUsers(@Query("results") usersCount: Int, @Query("inc") inc: String, @Query("seed") seed: String = API_SEED): UsersResponse
 }

@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flow
 
 class UsersRepository(private val randomUserApi: RandomUserApi) {
 
-    fun getUsers(usersCount: Int, inc: String): Flow<UIState<UsersResponse>> {
+    suspend fun getUsers(usersCount: Int, inc: String): Flow<UIState<UsersResponse>> {
         return flow {
             try {
                 emit(UIState.Loading)
