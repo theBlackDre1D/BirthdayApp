@@ -22,7 +22,7 @@ class MainActivity : BaseActivity<MainActivityBinding, Nothing>(), UsersListFrag
         navController?.navigateSafe(UsersListFragmentDirections.actionUsersListToUserDetail(user))
     }
 
-    override fun onGoBackClick() {
+    override fun navigateBackFromUserDetailScreen() {
         navController?.navigateUp()
     }
 }

@@ -33,12 +33,12 @@ class UserDetailFragment : BaseFragment<UserDetailFragmentBinding, UserDetailFra
             }
 
             goBackB.onClick {
-                handler.onGoBackClick()
+                handler.navigateBackFromUserDetailScreen()
             }
         }
     }
 }
 
 interface UserDetailFragmentHandler : BaseFragmentHandler {
-    fun onGoBackClick()
+    fun navigateBackFromUserDetailScreen()
 }
