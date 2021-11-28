@@ -17,7 +17,7 @@ class UsersListFragmentViewModel(private val usersRepository: UsersRepository) :
 
     fun getUsers() {
         doInCoroutine {
-            val result = usersRepository.getUsers(100, INC)
+            val result = usersRepository.getUsersSortedByDate(100, INC)
             result.collect {
                 users.postValue(it)
             }
